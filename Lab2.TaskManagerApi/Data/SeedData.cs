@@ -59,7 +59,7 @@ namespace Lab2.TaskManagerApi.Data
                         DeadlineDateTime = DateTime.UtcNow.AddDays(4).AddHours(9),
                         Title = "Cool party 2021",
                         Requirements = "Hosting the coolest party in 2021",
-                        Users = new() { user4, user4 }
+                        Users = new() { user3, user4 }
                     },
                     new Task_
                     {
