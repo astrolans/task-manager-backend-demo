@@ -22,7 +22,7 @@ namespace Lab2.DataAccessLayer
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Tasks)
                 .WithMany(t => t.Users)
-                .UsingEntity(j => j.ToTable("Assignment"));
+                .UsingEntity(j => j.ToTable("Assignments"));
         }
     }
 }
