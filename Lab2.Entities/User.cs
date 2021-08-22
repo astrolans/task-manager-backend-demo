@@ -14,7 +14,7 @@ namespace Lab2.Entities
 
         public string LastName { get; set; } = string.Empty;
 
-        public List<Task_> Tasks { get; set; }
+        public List<Task_> Tasks { get; set; } = new();
 
         [NotMapped]
         public string FullName => $"{FirstName} {LastName}";

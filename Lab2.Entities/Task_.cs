@@ -18,6 +18,6 @@ namespace Lab2.Entities
 
         public string Requirements { get; set; } = string.Empty;
 
-        public List<User> Users { get; set; }
+        public List<User> Users { get; set; } = new();
     }
 }
