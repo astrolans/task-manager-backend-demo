@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Lab2.TaskManagerApi.Services
+namespace Lab2.TaskManagerApi.Data
 {
     public class SeedData
     {
@@ -22,7 +22,7 @@ namespace Lab2.TaskManagerApi.Services
                     return;
                 }
 
-                User user1, user2, user3, user4, user5;
+                User user1, user2, user3, user4;
                 user1 = new() { FirstName = "Thomas", LastName = "Liu" };
                 user2 = new() { FirstName = "Simon", LastName = "Siroky" };
                 user3 = new() { FirstName = "John", LastName = "Doe" };
