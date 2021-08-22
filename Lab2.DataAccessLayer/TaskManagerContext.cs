@@ -24,7 +24,7 @@ namespace Lab2.DataAccessLayer
                 .WithMany(t => t.Users)
                 //.UsingEntity(j => j.ToTable("Assignments"));
                 .UsingEntity<Dictionary<string, object>>(
-                    "Assignment",
+                    "Assignments",
                     j => j
                         .HasOne<Task_>()
                         .WithMany()
