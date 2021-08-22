@@ -22,7 +22,19 @@ namespace Lab2.DataAccessLayer
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Tasks)
                 .WithMany(t => t.Users)
-                .UsingEntity(j => j.ToTable("Assignments"));
+                //.UsingEntity(j => j.ToTable("Assignments"));
+                .UsingEntity<Dictionary<string, object>>(
+                    "Assignment",
+                    j => j
+                        .HasOne<Task_>()
+                        .WithMany()
+                        .HasForeignKey("TaskId")
+                        .OnDelete(DeleteBehavior.Cascade),
+                    j => j
+                        .HasOne<User>()
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade));
         }
     }
 }
