@@ -14,7 +14,9 @@ namespace Lab2.DataAccessLayer
     {
         public TaskManagerContext CreateDbContext(string[] args)
         {
-            var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
 
             var optionsBuilder = new DbContextOptionsBuilder<TaskManagerContext>();
             optionsBuilder
