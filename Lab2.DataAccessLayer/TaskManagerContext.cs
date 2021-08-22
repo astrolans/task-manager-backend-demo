@@ -12,7 +12,7 @@ namespace Lab2.DataAccessLayer
     {
         public DbSet<User> Users { get; set; }
 
-        public DbSet<Entities.Task> Tasks { get; set; }
+        public DbSet<Task_> Tasks { get; set; }
 
         public TaskManagerContext(DbContextOptions<TaskManagerContext> options)
             : base(options) { }

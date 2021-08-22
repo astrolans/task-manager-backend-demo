@@ -1,4 +1,5 @@
 ﻿using Lab2.DataAccessLayer;
+using Lab2.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Lab2.TaskManagerApi.Repository
             this.context = context;
         }
 
-        public async Task<IEnumerable<Lab2.Entities.Task>> GetAllTasks
+        public async Task<IEnumerable<Task_>> GetAllTasks
         {
 
         }

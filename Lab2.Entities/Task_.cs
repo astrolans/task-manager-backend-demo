@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab2.Entities
 {
-    public class Task : BaseEntity
+    public class Task_ : BaseEntity
     {
 
         public DateTime BeginDateTime { get; set; }
