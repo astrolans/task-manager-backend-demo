@@ -17,13 +17,11 @@ namespace Lab2.TaskManagerApi.Servies
         }
 
         public async Task<IEnumerable<Task_>> GetAllTasksAsync() => await context.Tasks
-            .Include(t => t.Users
-                .Select(u => u.Id))
+            .Include(t => t.Users)
             .ToListAsync();
 
         public async Task<Task_> GetTaskByIdAsync(int id) => await context.Tasks
-            .Include(t => t.Users
-                .Select(u => u.FullName))
+            .Include(t => t.Users)
             .FirstOrDefaultAsync(t => t.Id == id);
     }
 }
