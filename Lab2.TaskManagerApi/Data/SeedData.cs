@@ -11,15 +11,27 @@ namespace Lab2.TaskManagerApi.Data
 {
     public class SeedData
     {
+        /// <summary>
+        /// Seeds database with dummy data and resets identity column on each call.
+        /// If database contains data, doesn't seed.
+        /// </summary>
+        /// <param name="serviceProvider"></param>
         public static void Initialize(IServiceProvider serviceProvider)
         {
             using (var context = new TaskManagerContext(
-                serviceProvider
-                    .GetRequiredService<DbContextOptions<TaskManagerContext>>()))
+                serviceProvider.GetRequiredService<DbContextOptions<TaskManagerContext>>()))
             {
-                if (context.Tasks.Any())
+                if (context.Tasks.Any() || context.Users.Any())
                 {
                     return;
+                }
+
+                foreach (var entity in context.Model.GetEntityTypes())
+                {
+                    var schemaName = entity.GetSchema();
+                    var tableName = entity.GetTableName();
+                    context.Database.ExecuteSqlInterpolated($"DELETE FROM {schemaName}.{tableName}");
+                    context.Database.ExecuteSqlInterpolated($"DBCC CHECKIDENT (\"{schemaName}.{tableName}\", RESEED, 1);");
                 }
 
                 User user1, user2, user3, user4;
