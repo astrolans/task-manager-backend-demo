@@ -17,5 +17,7 @@ namespace Lab2.Entities
         public string Title { get; set; } = string.Empty;
 
         public string Requirements { get; set; } = string.Empty;
+
+        public List<User> Users { get; set; }
     }
 }

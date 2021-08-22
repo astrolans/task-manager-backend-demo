@@ -12,5 +12,7 @@ namespace Lab2.Entities
         public string FirstName { get; set; } = string.Empty;
 
         public string LastName { get; set; } = string.Empty;
+
+        public List<Task> Tasks { get; set; }
     }
 }
