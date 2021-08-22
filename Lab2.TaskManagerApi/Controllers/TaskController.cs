@@ -22,6 +22,17 @@ namespace Lab2.TaskManagerApi.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Task_>))]
-        public IActionResult GetAll() => Ok(repository.GetAllTasks());
+        public async Task<IActionResult> GetAll() => Ok(await repository.GetAllTasksAsync());
+
+        [HttpGet]
+        [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Task_))]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var existingTask = await repository.GetTaskByIdAsync(id);
+            if (existingTask == null) return NotFound();
+            return Ok(existingTask);
+        }
     }
 }

@@ -16,12 +16,12 @@ namespace Lab2.TaskManagerApi.Servies
             this.context = context;
         }
 
-        public async Task<IEnumerable<Task_>> GetAllTasks() => await context.Tasks
+        public async Task<IEnumerable<Task_>> GetAllTasksAsync() => await context.Tasks
             .Include(t => t.Users
                 .Select(u => u.Id))
             .ToListAsync();
 
-        public async Task<Task_> GetTaskById(int id) => await context.Tasks
+        public async Task<Task_> GetTaskByIdAsync(int id) => await context.Tasks
             .Include(t => t.Users
                 .Select(u => u.FullName))
             .FirstOrDefaultAsync(t => t.Id == id);

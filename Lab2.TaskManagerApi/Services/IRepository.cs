@@ -6,8 +6,8 @@ namespace Lab2.TaskManagerApi.Servies
 {
     public interface IRepository
     {
-        Task<IEnumerable<Task_>> GetAllTasks();
+        Task<IEnumerable<Task_>> GetAllTasksAsync();
 
-        Task<Task_> GetTaskById(int id);
+        Task<Task_> GetTaskByIdAsync(int id);
     }
 }
