@@ -30,9 +30,9 @@ namespace Lab2.TaskManagerApi.Data
                 {
                     var schemaName = entity.GetSchema();
                     var tableName = entity.GetTableName();
-                    if (tableName == "Assignments")
+                    if (tableName == "Assignments") continue;
                     context.Database.ExecuteSqlRaw($"DELETE FROM {schemaName}.{tableName}");
-                    context.Database.ExecuteSqlRaw($"DBCC CHECKIDENT (\"{schemaName}.{tableName}\", RESEED, 1);");
+                    context.Database.ExecuteSqlRaw($"DBCC CHECKIDENT (\"{schemaName}.{tableName}\", RESEED, 0);");
                 }
 
                 User user1, user2, user3, user4;
