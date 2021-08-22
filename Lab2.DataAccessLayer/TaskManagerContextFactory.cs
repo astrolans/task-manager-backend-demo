@@ -20,7 +20,7 @@ namespace Lab2.DataAccessLayer
             optionsBuilder
                  // Uncomment the following line if you want to print generated
                  // SQL statements on the console.
-                 .UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
+                 //.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
                 .UseSqlServer(configuration["ConnectionStrings:DefaultConnection"]);
 
             return new TaskManagerContext(optionsBuilder.Options);
