@@ -31,6 +31,12 @@ namespace Lab2.TaskManagerApi
             services.AddDbContext<TaskManagerContext>(options => options
                 .UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
+            services.AddCors(options => options
+                .AddDefaultPolicy(builder => builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -41,6 +47,8 @@ namespace Lab2.TaskManagerApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
