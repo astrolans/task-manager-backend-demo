@@ -17,8 +17,6 @@ namespace Lab2.TaskManagerApi
 
         public static void Main(string[] args)
         {
-            //CreateHostBuilder(args).Build().Run();
-
             var host = CreateHostBuilder(args).Build();
 
             if (_isSeed)
