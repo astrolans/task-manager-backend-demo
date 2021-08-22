@@ -9,5 +9,7 @@ namespace Lab2.TaskManagerApi.Servies
         Task<IEnumerable<Task_>> GetAllTasksAsync();
 
         Task<Task_> GetTaskByIdAsync(int id);
+
+        Task<Task_> TakeResignResponsibility(Task_ task, int userId);
     }
 }

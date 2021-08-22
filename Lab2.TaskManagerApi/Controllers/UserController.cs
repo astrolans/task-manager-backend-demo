@@ -20,7 +20,7 @@ namespace Lab2.TaskManagerApi.Controllers
             this.repository = repository;
         }
 
-        [HttpPut]
+        [HttpPost]
         public IActionResult Add([FromBody] User user)
         {
             return Ok();
