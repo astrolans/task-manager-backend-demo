@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Lab2.Entities
@@ -18,6 +19,7 @@ namespace Lab2.Entities
 
         public string Requirements { get; set; } = string.Empty;
 
+        [JsonIgnore]
         public List<User> Users { get; set; } = new();
     }
 }
