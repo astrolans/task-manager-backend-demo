@@ -16,5 +16,13 @@ namespace Lab2.DataAccessLayer
 
         public TaskManagerContext(DbContextOptions<TaskManagerContext> options)
             : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Tasks)
+                .WithMany(t => t.Users)
+                .UsingEntity(j => j.ToTable("Assignment"));
+        }
     }
 }
