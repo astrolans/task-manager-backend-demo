@@ -1,9 +1,8 @@
 ﻿using Lab2.DataAccessLayer;
 using Lab2.Entities;
-using System;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Lab2.TaskManagerApi.Repository
 {
@@ -16,9 +15,10 @@ namespace Lab2.TaskManagerApi.Repository
             this.context = context;
         }
 
-        public async Task<IEnumerable<Task_>> GetAllTasks
-        {
+        public IEnumerable<Task_> GetAllTasks() => context.Tasks
+            .Include(t => t.Users
+                .Select(u => u.Id));
 
-        }
+        public Task_ GetTaskById(int id) => context.Tasks.FirstOrDefault(t => t.Id == id);
     }
 }

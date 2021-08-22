@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Lab2.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Lab2.TaskManagerApi.Repository
 {
     interface IRepository
     {
+        IEnumerable<Task_> GetAllTasks();
+
+        Task_ GetTaskById(int id);
     }
 }
