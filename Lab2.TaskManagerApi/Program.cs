@@ -13,7 +13,7 @@ namespace Lab2.TaskManagerApi
 {
     public class Program
     {
-        private static bool _isSeed = true;
+        private static bool _isSeed = false;
 
         public static void Main(string[] args)
         {

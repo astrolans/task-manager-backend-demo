@@ -19,7 +19,6 @@ namespace Lab2.Entities
 
         public string Requirements { get; set; } = string.Empty;
 
-        [JsonIgnore]
         public List<User> Users { get; set; } = new();
     }
 }
