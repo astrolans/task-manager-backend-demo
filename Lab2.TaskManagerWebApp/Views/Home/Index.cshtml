@@ -14,11 +14,8 @@
     ViewData["Title"] = "View";
 }
 
-<h1>View</h1>
+@*<h1>View</h1>*@
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -34,9 +31,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Requirements)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.TimeStamp)
-            </th>*@
+            <th>
+                Responsibility
+                @*@Html.DisplayNameFor(model => model.Users)*@
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -57,19 +55,11 @@
                     @Html.DisplayFor(modelItem => item.Requirements)
                 </td>
                 <td>
-                    @foreach (var user in Model)
+                    @foreach (var user in item.Users)
                     {
-
+                        @Html.DisplayFor(modelItem => user.FullName)<br>
                     }
                 </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.TimeStamp)
-                </td>*@
-                @*<td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>*@
             </tr>
         }
     </tbody>
