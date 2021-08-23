@@ -34,14 +34,20 @@ namespace Lab2.TaskManagerApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet]
-        [Route("{id}")]
+        //[HttpGet]
+        //[Route("{id}")]
+        [HttpGet("{id}", Name = nameof(GetById))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Task_))]
         public async Task<IActionResult> GetById(int id)
         {
             var existingTask = await repository.GetTaskByIdAsync(id);
-            if (existingTask == null) return NotFound();
+            
+            if (existingTask == null)
+            {
+                return NotFound();
+            }
+            
             return Ok(existingTask);
         }
 
@@ -53,15 +59,17 @@ namespace Lab2.TaskManagerApi.Controllers
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Task_))]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> AddRemoveResponisiblity(int taskId, int userId)
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ChangeResponsibility(int taskId, int userId)
         {
-            //var newTask = await repository.TakeResignResponsibility(task, userId);
-            //if (newTask.Users.Where(u => u.Id == userId).Any())
-            //{
-            //    return StatusCode((int)HttpStatusCode.Created);
-            //}
-            return NoContent();
+            if (taskId < 1 || userId < 1)
+            {
+                return BadRequest("Invalid TaskID or UserID");
+            }
+
+            var updatedTask = await repository.ChangeResponsibilityAsync(taskId, userId);
+            
+            return CreatedAtAction(nameof(GetById), new { id = updatedTask.Id }, updatedTask);
         }
     }
 }

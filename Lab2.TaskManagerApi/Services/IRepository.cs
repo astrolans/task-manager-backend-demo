@@ -10,6 +10,6 @@ namespace Lab2.TaskManagerApi.Servies
 
         Task<Task_> GetTaskByIdAsync(int id);
 
-        Task<Task_> TakeResignResponsibility(int taskId, int userId);
+        Task<Task_> ChangeResponsibilityAsync(int taskId, int userId);
     }
 }
