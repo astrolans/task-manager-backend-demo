@@ -1,11 +1,8 @@
 ﻿using Lab2.Entities;
-using Lab2.TaskManagerApi.Servies;
+using Lab2.TaskManagerApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace Lab2.TaskManagerApi.Controllers
@@ -14,9 +11,9 @@ namespace Lab2.TaskManagerApi.Controllers
     [ApiController]
     public class TaskController : ControllerBase
     {
-        private readonly IRepository repository;
+        private readonly ITaskRepository repository;
 
-        public TaskController(IRepository repository)
+        public TaskController(ITaskRepository repository)
         {
             this.repository = repository;
         }

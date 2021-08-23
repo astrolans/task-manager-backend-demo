@@ -1,5 +1,5 @@
 using Lab2.DataAccessLayer;
-using Lab2.TaskManagerApi.Servies;
+using Lab2.TaskManagerApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,7 +32,8 @@ namespace Lab2.TaskManagerApi
             services.AddDbContext<TaskManagerContext>(options => options
                 .UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
-            services.AddScoped<IRepository, Repository>();
+            services.AddScoped<ITaskRepository, TaskRepository>();
+            //services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddCors(options => options
                 .AddDefaultPolicy(builder => builder

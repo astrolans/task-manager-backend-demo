@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Lab2.TaskManagerApi.Servies
+namespace Lab2.TaskManagerApi.Services
 {
-    public class Repository : IRepository
+    public class TaskRepository : ITaskRepository
     {
         private readonly TaskManagerContext context;
 
-        public Repository(TaskManagerContext context)
+        public TaskRepository(TaskManagerContext context)
         {
             this.context = context;
         }
@@ -29,7 +29,7 @@ namespace Lab2.TaskManagerApi.Servies
         /// Get Task by specified ID.
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>Returns the Task by ID.</returns>
+        /// <returns>Returns the Task by ID or null if User not found.</returns>
         public async Task<Task_> GetTaskByIdAsync(int id) => await context.Tasks
             .Include(t => t.Users)
             .FirstOrDefaultAsync(t => t.Id == id);

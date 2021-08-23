@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Lab2.TaskManagerApi.Servies
+namespace Lab2.TaskManagerApi.Services
 {
-    public interface IRepository
+    public interface ITaskRepository
     {
         Task<IEnumerable<Task_>> GetAllTasksAsync();
 
