@@ -1,5 +1,7 @@
-﻿using Lab2.TaskManagerWebApp.Models;
+﻿using Lab2.DataAccessLayer;
+using Lab2.TaskManagerWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,16 +13,22 @@ namespace Lab2.TaskManagerWebApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly TaskManagerContext _context;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(TaskManagerContext context, ILogger<HomeController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var tasks = await _context.Tasks
+                .Include(t => t.Users)
+                .OrderBy(t => t.BeginDateTime)
+                .ToListAsync();
+            return View(tasks);
         }
 
         public IActionResult Privacy()
