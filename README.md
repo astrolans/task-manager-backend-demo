@@ -7,7 +7,7 @@
 * `localDb` ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) must be installed, otherwise see [here](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-ver15).
 * In the DataAccessLayer project directory, type ```dotnet ef migrations add Initial``` for creating the migration, followed by ```dotnet ef database update``` to create the database.
 * In your IDE, set multiple startup projects to `TaskManagerApi` ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) and `TaskManagerWebApp` ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+). To set multiple startup projects in Visual Studio, see [here](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-set-multiple-startup-projects?view=vs-2019).
-* Now both the web api and web server are be running. You can download the `Android Client App` ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) and use it, in the Repository root folder `AndroidClientApp`.
+* Now both the web api and web server are be running.
 
 ## Specification:
 The system consists of four parts:
