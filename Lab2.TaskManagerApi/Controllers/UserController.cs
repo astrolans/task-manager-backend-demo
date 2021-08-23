@@ -19,5 +19,22 @@ namespace Lab2.TaskManagerApi.Controllers
         {
             this.repository = repository;
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        //[HttpGet("{id}", Name = nameof(GetById))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type= typeof(string))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(User))]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var existingUser = await repository.GetUserByIdAsync(id);
+
+            if (existingUser == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(existingUser);
+        }
     }
 }
