@@ -38,19 +38,9 @@ namespace Lab2.TaskManagerApi.Servies
         /// The User takes or resigns the responsibility of a Task.
         /// </summary>
         /// <returns>The Task with the new status of responsibility.</returns>
-        public async Task<Task_> TakeResignResponsibility(Task_ task, int userId)
+        public async Task<Task_> TakeResignResponsibility(int taskId, int userId)
         {
-            IEnumerable<User> currentUser = task.Users.Where(u => u.Id == userId);
-            bool isUserResponsible = currentUser.Any();
-
-            if (isUserResponsible)
-            {
-                task.Users.Remove(currentUser.Single());
-            }
-            else
-            {
-                task.Users.Add(currentUser.Single());
-            }
+            var task = await GetTaskByIdAsync(taskId);
 
             await context.SaveChangesAsync();
             return task;

@@ -54,13 +54,13 @@ namespace Lab2.TaskManagerApi.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Task_))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> AddRemoveResponisiblity(Task_ task, int userId)
+        public async Task<IActionResult> AddRemoveResponisiblity(int taskId, int userId)
         {
-            var newTask = await repository.TakeResignResponsibility(task, userId);
-            if (newTask.Users.Where(u => u.Id == userId).Any())
-            {
-                return StatusCode((int)HttpStatusCode.Created);
-            }
+            //var newTask = await repository.TakeResignResponsibility(task, userId);
+            //if (newTask.Users.Where(u => u.Id == userId).Any())
+            //{
+            //    return StatusCode((int)HttpStatusCode.Created);
+            //}
             return NoContent();
         }
     }

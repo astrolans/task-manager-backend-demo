@@ -46,6 +46,10 @@ namespace Lab2.TaskManagerApi
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("" +
+                        "http://localhost:5000", 
+                        "https://localhost:5001", 
+                        "https://192.168.0.8:5001");
                 });
     }
 }
