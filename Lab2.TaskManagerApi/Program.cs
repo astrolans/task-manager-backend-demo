@@ -49,7 +49,7 @@ namespace Lab2.TaskManagerApi
                     webBuilder.UseUrls("" +
                         "http://localhost:5000",
                         "https://localhost:5001",
-                        "http://192.168.0.8:5000",
+                        "http://192.168.0.8:7000",
                         "https://192.168.0.8:5001");
                 });
     }
