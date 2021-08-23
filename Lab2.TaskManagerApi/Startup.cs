@@ -33,8 +33,8 @@ namespace Lab2.TaskManagerApi
                 .UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
             services.AddScoped<ITaskRepository, TaskRepository>();
-            //services.AddScoped<IUserRepository, UserRepository>();
-
+            services.AddScoped<IUserRepository, UserRepository>();
+            
             services.AddCors(options => options
                 .AddDefaultPolicy(builder => builder
                     .AllowAnyOrigin()
