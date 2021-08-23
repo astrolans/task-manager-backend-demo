@@ -30,7 +30,7 @@ Solution consists of `WebApi`, `WepApp (MVC, see next section)`, `DataAccessLaye
 
 **FrameWorks**:
 * `ASP .NET 5`
-* `Entity FrameWork Core`
+* `Entity FrameWork Core 5.0`
 
 **NuGet packages**: 
 * `Microsoft.EntityFrameworkCore.SqlServer`
