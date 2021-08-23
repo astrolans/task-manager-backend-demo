@@ -41,6 +41,13 @@ namespace Lab2.TaskManagerApi.Servies
         public async Task<Task_> TakeResignResponsibility(int taskId, int userId)
         {
             var task = await GetTaskByIdAsync(taskId);
+            var user = await context.Users.Where(u => u.Id == userId).SingleAsync();
+            
+            if (task.Users.Contains(user))
+            {
+                task.Users.Remove(user);
+            }
+            task.Users.Add(user);
 
             await context.SaveChangesAsync();
             return task;
