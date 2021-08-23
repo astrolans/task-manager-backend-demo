@@ -1,4 +1,4 @@
-##### | `21WM1B, Web & Mobile Development` | `Laboration 2` | `ASYAR19h` | `Högskolan i Borås 2021` | `Creators`: `Simon Berger-Siroky`, `Thomas Liu` |
+##### `Course: 21WM1B, Web & Mobile Development` | `Exam: Laboration 2` | `Education: ASYAR19h` | `Högskolan i Borås` | `Creators`: `Simon Berger-Siroky`, `Thomas Liu`
 
 ### Distributed Task-divided Application *(Applikation för distribuerad uppgiftsfördelning)*
 
