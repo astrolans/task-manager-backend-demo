@@ -1,6 +1,4 @@
-##### `Course: 21WM1B, Web & Mobile Development` | `Exam: Laboration 2` | `Education: ASYAR19h` | `Högskolan i Borås` | `Creators`: `Simon Berger-Siroky`, `Thomas Liu`
-
-### Distributed Task-divided Application *(Applikation för distribuerad uppgiftsfördelning)*
+### Simple Backend Demo App: Task Manager API w/ localDB
 
 ## How-to:
 * Download or clone the repository. 
@@ -14,7 +12,7 @@ The system consists of four parts:
 1. `MSSqlLocalDB` ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)
 2. `WebApi` ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)
 3. `WebApp (Mvc)` ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)
-4. `Android Client App` ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+)
+4. <s>`Android Client App` ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+)</s>
 
 ## 1. **MSSqlLocalDB** ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)
 Using SQL Server Express LocalDB. [Documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-ver15)
@@ -47,5 +45,5 @@ Running .NET 5, C# v9, in Visual Studio 2019. MVC-pattern. No repository, using 
 * `Microsoft.EntityFrameworkCore.SqlServer`
 * `Microsoft.VisualStudio.Web.CodeGeneration.Design`
 
-## 4. **Android Client App** ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+)
-Running Kotlin vXX, in Android Studio. 
+## <s>4. **Android Client App** ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+)
+Running Kotlin vXX, in Android Studio. </s>
